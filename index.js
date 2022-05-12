@@ -1,14 +1,15 @@
 const form = document.getElementById('form') //criando uma variavel constante usando getElement com a variavel form
-const nome = document.getElementById('nome')//criando uma variavel constante usando getElement com a variavel nome
+const username = document.getElementById('username')//criando uma variavel constante usando getElement com a variavel username
 const email = document.getElementById('email')//criando uma variavel constante usando getElement com a variavel email
-const senha = document.getElementById('senha')//criando uma variavel constante usando getElement com a variavel senha
-const senhadois = document.getElementById('senha-dois')//criando uma variavel constante usando getElement com a variavel senha-dois
+const password = document.getElementById('password')//criando uma variavel constante usando getElement com a variavel password
+const passwordtwo = document.getElementById('password-two')//criando uma variavel constante usando getElement com a variavel password-two
+const botao = document.getElementsByTagName('button')
 
 var newUser = [];
 var newEmails = [];
 
 form.addEventListener('reset', (e) => { //cria uma espera de um evento do tipo submit 
-    e.preventDefault()//impede q as condições impostas pelo navegador de funcionar (como salvar senha)
+    e.preventDefault()//impede q as condições impostas pelo navegador de funcionar (como salvar password)
 
     checkInputs()
 
@@ -16,19 +17,19 @@ form.addEventListener('reset', (e) => { //cria uma espera de um evento do tipo s
 
 function checkInputs() { //função criada para verificar os inputs
 
-    const nomeValue = nome.value.trim() //constante criada para receber o valor proposto no input do nome
+    const usernameValue = username.value.trim() //constante criada para receber o valor proposto no input do username
     const emailValue = email.value.trim() //constante criada para receber o valor proposto no input do email
-    const senhaValue = senha.value.trim() //constante criada para receber o valor proposto no input do senha
-    const senhadoisValue = senhadois.value.trim() //constante criada para receber o valor proposto no input do senhadois
+    const passwordValue = password.value.trim() //constante criada para receber o valor proposto no input do password
+    const passwordtwoValue = passwordtwo.value.trim() //constante criada para receber o valor proposto no input do passwordtwo
 
-    if(nomeValue === '') { //condição para caso nao tenha nada escrito no input
-        setErrorFor(nome, 'Preencha esse campo') //função com os parametros nome e a mensagem caso de erro no input
-    } else if(nomeValue.length < 3){ // se o nomeValue tiver menos que 3 caracteres
-        setErrorFor(nome, 'Numero de Caracteres invalido')
-    } else if (newUser.includes(nomeValue)){ //verificar se o nomeValue esta incluido na array newUser
-        setErrorFor(nome, 'Nome ja esta em uso')
+    if(usernameValue === '') { //condição para caso nao tenha nada escrito no input
+        setErrorFor(username, 'Preencha esse campo') //função com os parametros username e a mensagem caso de erro no input
+    } else if(usernameValue.length < 3){ // se o usernameValue tiver menos que 3 caracteres
+        setErrorFor(username, 'Numero de Caracteres invalido')
+    } else if (newUser.includes(usernameValue)){ //verificar se o usernameValue esta incluido na array newUser
+        setErrorFor(username, 'username ja esta em uso')
     } else {
-        setSuccessFor(nome)
+        setSuccessFor(username)
     }
 
     if(emailValue === '') { //condição para caso nao tenha nada escrito no input
@@ -42,23 +43,23 @@ function checkInputs() { //função criada para verificar os inputs
     }
 
         
-    if(senhaValue === '') { //condição para caso nao tenha nada escrito no input
-        setErrorFor(senha, 'Preencha esse campo') // ''
-    } else if(senhaValue.length < 8) {  // condição para verificar se a senha tem mais de 8 caracteres
-        setErrorFor(senha, 'Senha deve ter mais que 8 caracteres') 
+    if(passwordValue === '') { //condição para caso nao tenha nada escrito no input
+        setErrorFor(password, 'Preencha esse campo') // ''
+    } else if(passwordValue.length < 8) {  // condição para verificar se a password tem mais de 8 caracteres
+        setErrorFor(password, 'password deve ter mais que 8 caracteres') 
     } else {
-        setSuccessFor(senha)
+        setSuccessFor(password)
     }
 
-    if(senhadoisValue === '') {
-        setErrorFor(senhadois, 'Preencha esse campo')
-    } else if(senhaValue !== senhadoisValue) { // condição para caso a senha e o confirmar senha sejam diferentes, mostrar a mensagem
-        setErrorFor(senhadois, 'Senhas não são iguais')
+    if(passwordtwoValue === '') {
+        setErrorFor(passwordtwo, 'Preencha esse campo')
+    } else if(passwordValue !== passwordtwoValue) { // condição para caso a password e o confirmar password sejam diferentes, mostrar a mensagem
+        setErrorFor(passwordtwo, 'passwords não são iguais')
     } else {
-        setSuccessFor(senhadois)
+        setSuccessFor(passwordtwo)
     }
 
-    newUser.push(nomeValue)
+    newUser.push(usernameValue)
     newEmails.push(emailValue)
 
 }
@@ -70,13 +71,13 @@ function setErrorFor(input, message) { //função para mostrar a cor vermelha e 
 
     small.innerText = message //troca a mensagem do small para a frase da mensagem
 
-    formControl.className = 'form-control error' //troca o nome da class para form-control error
+    formControl.className = 'form-control error' //troca o username da class para form-control error
 }
 
 function setSuccessFor(input) { //função para mostrar a borda verde
     const formControl = input.parentElement; //input.parentElement é para pegar a tag filha input que esta mais proxima da tag pai
 
-    formControl.className = 'form-control success' //troca o nome da class para form-control error
+    formControl.className = 'form-control success' //troca o username da class para form-control error
 }
 
 function isEmail(email) { //me recuso a entender isso, função da internet
