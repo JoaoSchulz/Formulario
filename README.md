@@ -17,6 +17,5 @@
 [![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/pt-br/windows/get-windows-10)
 [![IDE](https://img.shields.io/badge/Visual_studio_code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)](https://code.visualstudio.com/)
 
-<h1> projeto rodando no github Pages <h1>
-
-<h2> https://joaoschulz.github.io/Formulario/ <h2>
+<h2> projeto rodando no github Pages <h2>
+<h3> https://joaoschulz.github.io/Formulario/ <h3>
